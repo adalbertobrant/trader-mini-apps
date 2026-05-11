@@ -1,0 +1,52 @@
+Content & Writing (1-10)
+01. Weekly Newsletter Draft: Give Claude your topic, audience profile, and 3 source links. Get a full newsletter draft in your voice every Monday morning. Pair with a context file containing your past newsletters and it sounds exactly like you.
+02. Social Media Repurposer: Feed Claude one long-form article. Get back 10 tweets, 3 LinkedIn posts, 2 Instagram captions, and 1 email teaser. All formatted, all in your tone, all ready to post.
+03. Blog Post from Voice Notes: Record a 10-minute voice note about any topic. Upload the transcript to Claude. Get a 1,500-word blog post that keeps your natural voice but adds structure and polish.
+04. Content Calendar Generator: Give Claude your niche, posting frequency, and 3 content pillars. Get a full 30-day content calendar with titles, hooks, and angle suggestions for every single post.
+05. SEO Article Writer: Provide a target keyword. Claude researches the topic using Tavily, analyzes what is ranking, identifies gaps, and writes a full SEO-optimized article with headers, internal linking suggestions, and meta description.
+06. Email Sequence Builder: Describe your product and your audience's biggest pain point. Claude writes a 5-email welcome sequence with subject lines, send timing recommendations, and A/B test variations for each email.
+07. YouTube Script Generator: Give Claude your video topic and target length. Get a full script with hook, outline, talking points, b-roll suggestions, and a call to action. Paste your best performing scripts as examples and it matches your style.
+08. Thread Expander: Paste any short idea or hot take. Claude expands it into a 10-post thread with a hook, supporting points, specific examples, and a strong closing CTA.
+09. Comment Response Bank: Upload your 50 most common comments or DMs. Claude creates templated responses for each category that sound personal, not robotic. Update monthly as new patterns emerge.
+10. Headline Tester: Give Claude one article topic. Get 20 headline variations using different proven frameworks: curiosity gap, specific numbers, how-to, contrarian, and social proof angles. Pick the best, test the rest.
+Research & Analysis (11-20)
+11. Competitor Tracker: Set up a weekly workflow where Claude searches for your top 5 competitors' latest moves: pricing changes, product launches, hiring, press coverage. Get a one-page summary delivered to your Drive every Monday.
+12. Industry News Digest: Claude scans your niche's top 10 news sources daily and produces a 3-paragraph summary of what matters. No noise. No fluff. Just the signal.
+13. Market Research Report: Give Claude a product idea and a target market. Get a full analysis including market size estimates, competitor landscape, pricing benchmarks, and 3 recommended go-to-market angles.
+14. Trend Spotter: Claude monitors specific topics across multiple sources and identifies emerging patterns that have not hit mainstream yet. The earlier you see trends, the earlier you can create content or products around them.
+15. Book Summary System: Upload a book PDF. Get a full summary with key takeaways, actionable insights, notable quotes, and a "how to apply this" section customized to your specific work.
+16. Meeting Research Prep: Before any call, give Claude the person's name and company. Get a one-page brief with their background, recent activity, company news, potential talking points, and questions to ask.
+17. Patent and Product Scanner: Give Claude a technology category. It searches recent patents, product launches, and research papers to identify what is coming next in your space.
+18. Pricing Analyzer: Claude researches how competitors in your niche price their products, identifies the most common pricing models, and recommends a pricing strategy based on your positioning.
+19. Audience Research Engine: Point Claude at forums, Reddit threads, and social posts in your niche. Get a report on what your audience is actually asking about, complaining about, and wishing existed.
+20. Investment Research Brief: Give Claude a company or asset. Get a structured analysis covering fundamentals, recent news, risk factors, and a summary of bull and bear cases. Not financial advice. Just organized information that saves you hours.
+Productivity & Organization (21-30)
+21. Inbox Zero Processor: Claude reads your unread emails, categorizes them by urgency and type, drafts responses for the routine ones, and flags the ones that need your personal attention.
+22. File Organizer: Point Cowork at your Downloads folder or Desktop. It sorts files into logical folders by type, project, or date. Renames files with consistent naming conventions. Deletes duplicates.
+23. Meeting Notes to Action Items: Upload a meeting transcript. Get structured notes with decisions made, action items assigned to specific people, deadlines, and follow-up questions.
+24. Weekly Review Generator: At the end of each week, give Claude your completed tasks, wins, and blockers. Get a formatted weekly review with patterns identified, suggestions for next week, and progress against your goals.
+25. SOPs from Your Brain: Describe any process you do regularly in casual language. Claude converts it into a structured Standard Operating Procedure with numbered steps, decision trees, and quality checks.
+26. Invoice Processor: Upload invoices. Claude extracts vendor name, amount, date, category, and payment terms into a clean spreadsheet. Run monthly to keep your books organized without manual data entry.
+27. Travel Planner: Give Claude your destination, dates, budget, and preferences. Get a full itinerary with flights, hotels, restaurants, and activities researched and organized day by day.
+28. Habit Tracker Review: Upload your habit tracking data. Claude analyzes your consistency, identifies your strongest and weakest habits, spots correlations, and gives you specific recommendations.
+29. Personal CRM Updater: After every important meeting or call, tell Claude who you met, what you discussed, and any follow-ups needed. It maintains a running profile for each contact.
+30. Daily Briefing: Every morning, Claude pulls your calendar, checks your task list, reviews relevant industry news, and gives you a 2-minute briefing on what matters today.
+Business & Revenue (31-40)
+31. Proposal Generator: Describe the project scope and client needs. Claude writes a professional proposal with scope, timeline, deliverables, pricing, and terms. Customize the template once, reuse it forever.
+32. Client Onboarding Docs: Claude generates welcome packets, questionnaires, process documents, and expectation-setting emails based on your service type. New client onboarding drops from 3 hours to 15 minutes.
+33. Product Description Writer: Upload product photos and specs. Get optimized product descriptions for your website, Amazon, Etsy, or any marketplace. Include SEO keywords, benefit-focused copy, and multiple length variations.
+34. Review Response System: Upload your recent customer reviews. Claude drafts personalized responses for each one. thankful for positive reviews, empathetic and solution-oriented for negative ones.
+35. Sales Email Personalizer: Give Claude a prospect list with company names. It researches each company using Tavily, finds a relevant angle, and writes a personalized cold email for each one.
+36. Financial Report Formatter: Upload raw financial data. Claude organizes it into a formatted report with charts, trend analysis, and executive summary. What used to take an analyst a full day now takes minutes.
+37. Contract Summarizer: Upload any contract. Get a plain-language summary of key terms, obligations, deadlines, red flags, and areas to negotiate. Not legal advice, but saves hours of initial review.
+38. Knowledge Base Builder: Take your most common customer questions and Claude builds a structured FAQ or knowledge base with categorized answers, related articles, and search-friendly formatting.
+39. Testimonial Collector and Formatter: Claude takes raw customer feedback from emails, surveys, and messages and reformats them into polished testimonials organized by use case, with permission request templates.
+40. Workflow Audit Report: Describe your current daily and weekly workflow in detail. Claude identifies bottlenecks, suggests automations for repetitive steps, estimates time savings, and prioritizes what to automate first.
+How to Actually Build These
+Every single automation on this list follows the same 4-step process:
+
+    Define the task: What goes in, what comes out
+    Write the skill file: Claude's job description for this specific task
+    Add your context: Your voice, your rules, your preferences
+    Test and refine: Run it on real work, improve the skill file based on what misses
+
