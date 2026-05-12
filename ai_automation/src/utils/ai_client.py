@@ -8,6 +8,7 @@ from google.genai import types
 from groq import AsyncGroq
 from mistralai.client import Mistral
 from openai import AsyncOpenAI
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from src.utils.config import config
 
 class BaseAIClient(abc.ABC):
@@ -20,6 +21,12 @@ class AnthropicClient(BaseAIClient):
     def __init__(self, api_key: str):
         self.client = anthropic.AsyncAnthropic(api_key=api_key, timeout=120.0)
 
+    @retry(
+        stop=stop_after_attempt(2),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type((httpx.TimeoutException, anthropic.APIStatusError)),
+        reraise=True
+    )
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         message = await self.client.messages.create(
             model="claude-3-5-sonnet-20240620",
@@ -36,6 +43,12 @@ class GeminiClient(BaseAIClient):
             http_options=types.HttpOptions(timeout=120_000)
         )
 
+    @retry(
+        stop=stop_after_attempt(2),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type(httpx.TimeoutException),
+        reraise=True
+    )
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         # google-genai handles system instructions in the generate call or config
         response = await self.client.aio.models.generate_content(
@@ -49,6 +62,12 @@ class GroqClient(BaseAIClient):
     def __init__(self, api_key: str):
         self.client = AsyncGroq(api_key=api_key, timeout=120.0)
 
+    @retry(
+        stop=stop_after_attempt(2),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type(httpx.TimeoutException),
+        reraise=True
+    )
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         messages = []
         if system_prompt:
@@ -66,6 +85,12 @@ class MistralClient(BaseAIClient):
         self._httpx_client = httpx.AsyncClient(timeout=120.0)
         self.client = Mistral(api_key=api_key, async_client=self._httpx_client)
 
+    @retry(
+        stop=stop_after_attempt(2),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type(httpx.TimeoutException),
+        reraise=True
+    )
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         messages = []
         if system_prompt:
@@ -88,6 +113,12 @@ class OpenRouterClient(BaseAIClient):
         )
         self.model = model
 
+    @retry(
+        stop=stop_after_attempt(2),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type(httpx.TimeoutException),
+        reraise=True
+    )
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         messages = []
         if system_prompt:
@@ -108,6 +139,12 @@ class LocalAIClient(BaseAIClient):
         )
         self.model = model
 
+    @retry(
+        stop=stop_after_attempt(2),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type(httpx.TimeoutException),
+        reraise=True
+    )
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         messages = []
         if system_prompt:

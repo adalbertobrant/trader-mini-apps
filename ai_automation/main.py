@@ -201,7 +201,7 @@ async def run_pipeline():
             else:
                 print("Invalid choice.")
         except Exception as e:
-            print(f"\n❌ Error: {e}")
+            print(f"\n❌ Error: {type(e).__name__}: {e}")
             print("The AI model might be timing out or unreachable. Please try again.\n")
 
 

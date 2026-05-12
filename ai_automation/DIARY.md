@@ -198,3 +198,20 @@
 
 ### Next Steps:
 - Prosseguir com o design de autenticação para a Phase 5.
+
+### Session: 2026-05-11 - Implementação de Retentativas (Tenacity) e Melhoria na Síntese
+
+### What we did:
+- **Resiliência com Tenacity:** Implementada estratégia de retentativa automática usando a biblioteca `tenacity`. Todas as chamadas de IA agora tentam até 2 vezes em caso de timeout ou erros temporários, com backoff exponencial (espera entre 2 e 10 segundos).
+- **Lógica de Síntese Aprimorada:** O motor de consenso agora prioriza explicitamente modelos analíticos superiores (Anthropic ou Gemini) para a etapa final de fusão de conteúdo, mesmo que o modelo primário original falhe na rodada inicial.
+- **Visibilidade:** Adicionada notificação em tempo real (`✨ Synthesizing...`) informando qual modelo foi selecionado para realizar a síntese do consenso.
+- **Diagnóstico:** Melhorada a captura de exceções no CLI para exibir o tipo da exceção (`ReadTimeout`, `ConnectError`, etc.), facilitando o suporte e depuração.
+- **Qualidade:** Testes validados.
+
+### Thoughts:
+- A adição de retentativas é a "última milha" para tornar um CLI de IA confiável. Muitas vezes, um `ReadTimeout` é apenas uma oscilação momentânea na infraestrutura do provedor.
+- Priorizar modelos específicos para a síntese garante que a qualidade do "Gold Standard" não caia drasticamente se um dos modelos menores (como Llama ou Mistral) for o único sobrevivente da rodada de consulta, mas houver um modelo mais capaz disponível para processar os resultados.
+
+### Next Steps:
+- Monitorar a estabilidade em execuções de longa duração.
+- Phase 5: Auth Design.

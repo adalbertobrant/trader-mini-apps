@@ -38,14 +38,18 @@ class ConsensusSynthesizer:
             f"Based on the above, provide the final optimized version:"
         )
 
-        # Use the primary client if it responded successfully, otherwise fall back
-        # to any client that actually produced a valid response.
-        if self.primary_model_name in responses:
-            primary_client = self.multi_client.clients[self.primary_model_name]
+        # Synthesis model selection logic:
+        # Prefer Anthropic (Sonnet) or Gemini (Pro) for high-quality synthesis.
+        target_model = None
+        if "anthropic" in responses:
+            target_model = "anthropic"
+        elif "gemini" in responses:
+            target_model = "gemini"
         else:
-            first_valid = next(iter(responses))
-            primary_client = self.multi_client.clients[first_valid]
+            target_model = next(iter(responses))
 
+        print(f"✨ Synthesizing results via consensus (Model: {target_model})...")
+        primary_client = self.multi_client.clients[target_model]
         return await primary_client.generate_text(synthesis_prompt, system_prompt)
 
     async def run_consensus_flow(self, prompt: str, system_prompt: Optional[str] = None) -> str:
