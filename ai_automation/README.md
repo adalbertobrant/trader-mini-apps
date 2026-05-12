@@ -10,7 +10,7 @@ Built for niche site owners, affiliate marketers, and e-commerce brands who need
 
 ### 1. Clone the repository
 ```bash
-git clone <repo-url>
+git clone https://github.com/adalbertobrant/trader-mini-apps.git
 cd ai_automation
 ```
 
