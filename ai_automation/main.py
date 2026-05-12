@@ -15,8 +15,10 @@ from src.research.market_analyzer import MarketAnalyzer
 from src.content.seo_writer import SEOWriter
 from src.marketing.product_description import ProductDescriptionGenerator
 from src.marketing.sales_email import SalesEmailPersonalizer
+from src.utils.file_exporter import FileExporter
 
 _pt = PromptTemplate()
+_exporter = FileExporter()
 
 
 def _get(prompt: str) -> str:

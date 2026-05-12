@@ -11,7 +11,7 @@ async def test_cli_market_research(capsys):
     with patch("main.MultiModelClient"), \
          patch("main.ConsensusSynthesizer", return_value=mock_synthesizer), \
          patch("main.MarketAnalyzer") as MockAnalyzer, \
-         patch("builtins.input", side_effect=["1", "AI tools", "0"]):
+         patch("builtins.input", side_effect=["1", "AI tools", "n", "0"]):
 
         mock_instance = AsyncMock()
         mock_instance.analyze_niche.return_value = "Market Report"

@@ -168,3 +168,18 @@
 ### Thoughts:
 - A base para o serviço "Mãos Livres" está pronta. Agora o sistema não apenas "fala", mas "entrega" o produto final.
 - O próximo grande gargalo é a autenticação da API para permitir múltiplos usuários/clientes.
+
+### Session: 2026-05-11 - Correção do Bug de Salvamento no CLI
+
+### What we did:
+- **Bug Fix:** Resolvido erro que impedia o salvamento de arquivos no CLI (`main.py`). O objeto `_exporter` estava sendo utilizado mas não foi importado nem inicializado.
+- **Dependências:** Instalada a biblioteca `aiofiles` que estava faltando no ambiente de execução, apesar de listada no `requirements.txt`.
+- **Testes:** Atualizado `tests/test_main.py` para incluir as novas interações de prompt do CLI (opção de salvar), garantindo que os testes reflitam o fluxo real.
+- **Qualidade:** Todos os 21 testes passando com sucesso.
+
+### Thoughts:
+- Pequenos lapsos de inicialização podem travar funcionalidades críticas. A adição de testes que cobrem as ramificações de "salvar" ajudaria a evitar isso no futuro.
+- A estrutura de diretórios `outputs/` agora é criada automaticamente na primeira execução do CLI.
+
+### Next Steps:
+- Retomar os pré-requisitos da Phase 5 (FastAPI), focando no design de autenticação.
