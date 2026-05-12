@@ -13,9 +13,10 @@ Um motor de agência de conteúdo e SEO orientado por IA. Este projeto automatiz
 
 ## Licença e Termos de Uso
 
-Este projeto está sob uma licença de **Todos os Direitos Reservados** para **Adalberto Caldeira Brant Filho**.
+Este projeto utiliza uma **Licença de Uso Autorizado com Restrição Comercial** sob os direitos de **Adalberto Caldeira Brant Filho**.
 
-A citação, uso ou utilização de qualquer parte deste software e documentação associada deve ser expressamente autorizada via e-mail pelo autor. O autor reserva-se o direito de cobrar ou não pelo seu uso, mantendo o controle autoral completo.
+- **Uso Autorizado:** O uso, cópia ou modificação é permitido apenas mediante autorização expressa e prévia do autor via e-mail.
+- **Restrição Financeira:** O uso para finalidades financeiras ou comerciais é terminantemente proibido sem autorização específica para esse fim. O autor mantém controle autoral completo.
 
 ---
 *Desenvolvido por Adalberto Caldeira Brant Filho*
