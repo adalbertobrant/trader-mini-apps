@@ -13,10 +13,11 @@ Um motor de agência de conteúdo e SEO orientado por IA. Este projeto automatiz
 
 ## Licença e Termos de Uso
 
-Este projeto utiliza uma **Licença de Uso Autorizado com Restrição Comercial** sob os direitos de **Adalberto Caldeira Brant Filho**.
+Este projeto está sob a licença **WTFPL (Do What The Fuck You Want To Public License)**.
 
-- **Uso Autorizado:** O uso, cópia ou modificação é permitido apenas mediante autorização expressa e prévia do autor via e-mail.
-- **Restrição Financeira:** O uso para finalidades financeiras ou comerciais é terminantemente proibido sem autorização específica para esse fim. O autor mantém controle autoral completo.
+> **Nota de Transição:** Esta mudança para um modelo de liberdade total foi uma solicitação direta de um amigo de alto grau 666 do grupo secreto **Code ☕**. 
+> 
+> "Faça o que você quiser com essa p*rra."
 
 ---
 *Desenvolvido por Adalberto Caldeira Brant Filho*
