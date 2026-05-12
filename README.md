@@ -13,11 +13,11 @@ Um motor de agência de conteúdo e SEO orientado por IA. Este projeto automatiz
 
 ## Licença e Termos de Uso
 
-Este projeto está sob a licença **WTFPL (Do What The Fuck You Want To Public License)**.
+Este projeto está sob a licença **DWYWPL (Do What You Want To Public License)**.
 
 > **Nota de Transição:** Esta mudança para um modelo de liberdade total foi uma solicitação direta de um amigo de alto grau 666 do grupo secreto **Code ☕**. 
 > 
-> "Faça o que você quiser com essa p*rra."
+> "Faça o que você quiser com este projeto."
 
 ---
 *Desenvolvido por Adalberto Caldeira Brant Filho*
