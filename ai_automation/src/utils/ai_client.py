@@ -1,8 +1,10 @@
 import abc
 import asyncio
+import httpx
 from typing import Optional, Dict
 import anthropic
 from google import genai
+from google.genai import types
 from groq import AsyncGroq
 from mistralai.client import Mistral
 from openai import AsyncOpenAI
@@ -16,7 +18,7 @@ class BaseAIClient(abc.ABC):
 
 class AnthropicClient(BaseAIClient):
     def __init__(self, api_key: str):
-        self.client = anthropic.AsyncAnthropic(api_key=api_key)
+        self.client = anthropic.AsyncAnthropic(api_key=api_key, timeout=120.0)
 
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         message = await self.client.messages.create(
@@ -29,7 +31,10 @@ class AnthropicClient(BaseAIClient):
 
 class GeminiClient(BaseAIClient):
     def __init__(self, api_key: str):
-        self.client = genai.Client(api_key=api_key)
+        self.client = genai.Client(
+            api_key=api_key,
+            http_options=types.HttpOptions(timeout=120_000)
+        )
 
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         # google-genai handles system instructions in the generate call or config
@@ -42,7 +47,7 @@ class GeminiClient(BaseAIClient):
 
 class GroqClient(BaseAIClient):
     def __init__(self, api_key: str):
-        self.client = AsyncGroq(api_key=api_key)
+        self.client = AsyncGroq(api_key=api_key, timeout=120.0)
 
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         messages = []
@@ -57,7 +62,9 @@ class GroqClient(BaseAIClient):
 
 class MistralClient(BaseAIClient):
     def __init__(self, api_key: str):
-        self.client = Mistral(api_key=api_key)
+        # Mistral SDK v1.0+ uses httpx internally. Injection is the most reliable way to set timeout.
+        self._httpx_client = httpx.AsyncClient(timeout=120.0)
+        self.client = Mistral(api_key=api_key, async_client=self._httpx_client)
 
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:
         messages = []
@@ -77,6 +84,7 @@ class OpenRouterClient(BaseAIClient):
         self.client = AsyncOpenAI(
             base_url="https://openrouter.ai/api/v1",
             api_key=api_key,
+            timeout=120.0
         )
         self.model = model
 
@@ -93,7 +101,11 @@ class OpenRouterClient(BaseAIClient):
 
 class LocalAIClient(BaseAIClient):
     def __init__(self, base_url: str, model: str):
-        self.client = AsyncOpenAI(base_url=base_url, api_key="sk-no-key-required")
+        self.client = AsyncOpenAI(
+            base_url=base_url,
+            api_key="sk-no-key-required",
+            timeout=120.0
+        )
         self.model = model
 
     async def generate_text(self, prompt: str, system_prompt: Optional[str] = None) -> str:

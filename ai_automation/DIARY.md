@@ -183,3 +183,18 @@
 
 ### Next Steps:
 - Retomar os pré-requisitos da Phase 5 (FastAPI), focando no design de autenticação.
+
+### Session: 2026-05-11 - Robustez e Tratamento de Timeouts
+
+### What we did:
+- **Aumento de Timeouts:** Elevado o timeout de todos os provedores de IA (Anthropic, Gemini, Groq, Mistral, OpenRouter, LocalAI) para 120 segundos. Isso evita erros de `ReadTimeout` em prompts grandes ou momentos de alta latência das APIs.
+- **Correção Mistral:** Ajustada a inicialização do SDK da Mistral para injetar corretamente o `httpx.AsyncClient` no parâmetro `async_client`.
+- **Estabilidade do CLI:** Implementado um bloco `try...except` global no loop principal do `main.py`. Agora, falhas de rede ou timeouts não derrubam mais a aplicação; o erro é exibido amigavelmente e o usuário pode tentar novamente.
+- **Qualidade:** Todos os 21 testes validados e passando.
+
+### Thoughts:
+- APIs de IA são inerentemente instáveis e lentas em comparação com APIs REST tradicionais. O timeout padrão de 5-10 segundos do `httpx` é insuficiente para modelos "Large".
+- O tratamento de exceções no CLI é fundamental para a experiência do usuário, especialmente em ferramentas de automação que processam grandes volumes de dados.
+
+### Next Steps:
+- Prosseguir com o design de autenticação para a Phase 5.
