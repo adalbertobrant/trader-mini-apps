@@ -15,13 +15,23 @@ cd ai_automation
 ```
 
 ### 2. Create and activate a virtual environment
+
+**Option A: Using venv (Standard)**
 ```bash
-python -m venv venv
+# Recommended: Use Python 3.10 or 3.11 for maximum compatibility
+python3.11 -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
+```
+
+**Option B: Using Conda (Recommended if you use Miniconda/Anaconda)**
+```bash
+conda create -n ai_automation python=3.11
+conda activate ai_automation
 ```
 
 ### 3. Install dependencies
 ```bash
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
@@ -139,6 +149,17 @@ python -m pytest
 ```
 
 All modules have full test coverage. Tests use mocks — no real API calls are made.
+
+---
+
+## 🛠️ Troubleshooting
+
+### `mistralai` Installation Error
+If you encounter `ERROR: No matching distribution found for mistralai>=1.0.0 (from versions: none)`:
+1. **Python Version:** Ensure you are using Python 3.10, 3.11, or 3.12. Python 3.13 is supported by the SDK, but some environments (like Arch Linux mixing `venv` with a `conda` base) might experience metadata resolution issues.
+2. **Pip Upgrade:** Always run `pip install --upgrade pip` before installing the requirements.
+3. **Conda Users:** If you are already using Conda, avoid `python -m venv`. Use `conda create` (Option B above) to ensure a clean, isolated environment.
+4. **Manual Install:** Try installing it individually: `pip install mistralai`.
 
 ---
 
